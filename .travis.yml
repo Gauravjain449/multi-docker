@@ -16,10 +16,10 @@ after_success:
 
  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-#  - docker push gauravjain449/multi-client
-#  - docker push gauravjain449/multi-nginx
-#  - docker push gauravjain449/multi-server
-#  - docker push gauravjain449/multi-worker
+ - docker push gauravjain449/multi-client
+ - docker push gauravjain449/multi-nginx
+ - docker push gauravjain449/multi-server
+ - docker push gauravjain449/multi-worker
 
 deploy:
   edge: true
