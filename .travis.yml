@@ -24,7 +24,6 @@ after_success:
 deploy:
   edge: true
   provider: elasticbeanstalk
-  timeout: 30
   region: "us-east-1"
   app:  "multi-docker"
   env: "MultiDocker-env"
