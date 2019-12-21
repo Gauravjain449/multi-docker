@@ -1,6 +1,6 @@
-# sudo: required
-# services:
-#   - docker
+sudo: required
+services:
+  - docker
 
 # before_install:
 #  - docker build -t gauravjain449/react-test -f ./client/Dockerfile.dev ./client
@@ -13,8 +13,7 @@
 #  - docker build -t gauravjain449/multi-nginx ./nginx
 #  - docker build -t gauravjain449/multi-server ./server
 #  - docker build -t gauravjain449/multi-worker ./worker
-
-#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 #  - docker push gauravjain449/multi-client
 #  - docker push gauravjain449/multi-nginx
