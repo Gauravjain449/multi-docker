@@ -1,25 +1,25 @@
-sudo: required
-services:
-  - docker
+# sudo: required
+# services:
+#   - docker
 
-before_install:
- - docker build -t gauravjain449/react-test -f ./client/Dockerfile.dev ./client
+# before_install:
+#  - docker build -t gauravjain449/react-test -f ./client/Dockerfile.dev ./client
 
-script:
- - docker run -e CI=true gauravjain449/react-test npm test
+# script:
+#  - docker run -e CI=true gauravjain449/react-test npm test
 
-after_success:
- - docker build -t gauravjain449/multi-client ./client
- - docker build -t gauravjain449/multi-nginx ./nginx
- - docker build -t gauravjain449/multi-server ./server
- - docker build -t gauravjain449/multi-worker ./worker
+# after_success:
+#  - docker build -t gauravjain449/multi-client ./client
+#  - docker build -t gauravjain449/multi-nginx ./nginx
+#  - docker build -t gauravjain449/multi-server ./server
+#  - docker build -t gauravjain449/multi-worker ./worker
 
- - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
- - docker push gauravjain449/multi-client
- - docker push gauravjain449/multi-nginx
- - docker push gauravjain449/multi-server
- - docker push gauravjain449/multi-worker
+#  - docker push gauravjain449/multi-client
+#  - docker push gauravjain449/multi-nginx
+#  - docker push gauravjain449/multi-server
+#  - docker push gauravjain449/multi-worker
 
 deploy:
   edge: true
